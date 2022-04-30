@@ -11,7 +11,9 @@ export function activate(context: vscode.ExtensionContext) {
 
       console.log(prevFileUri.path);
 
-      vscode.workspace.openTextDocument(prevFileUri);
+      vscode.workspace.openTextDocument(prevFileUri).then((doc) => {
+        vscode.window.showTextDocument(doc);
+      });
     }),
   );
 
