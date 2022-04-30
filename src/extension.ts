@@ -1,22 +1,30 @@
 import * as vscode from 'vscode';
+import { FilesQueue } from './FilesQueue';
 
 export function activate(context: vscode.ExtensionContext) {
-  // console.log('context', context.workspaceState.keys());
-  // console.log('vscode', vscode);
+  const lastFiles = new FilesQueue(context);
 
-  let disposable = vscode.commands.registerCommand('vscode-ext-demo.toggle', () => {
-    // console.log('context', context.workspaceState.keys());
-    // const fuzzySearch = new FuzzySearch(context);
-    // vscode.window.showInformationMessage('toggle file');
-    vscode.commands.executeCommand('workbench.action.quickOpen');
-    setTimeout(() => {
-      vscode.commands.executeCommand('workbench.action.quickOpenNavigateNextInEditorPicker');
+  // exec command
+  context.subscriptions.push(
+    vscode.commands.registerCommand('vscode-ext-demo.toggle', () => {
+      const prevFileUri = lastFiles.prevFile.document.uri;
 
-      setTimeout(() => {
-        vscode.commands.executeCommand('workbench.action.acceptSelectedQuickOpenItem');
-      }, 0);
-    }, 0);
-  });
+      console.log(prevFileUri.path);
 
-  context.subscriptions.push(disposable);
+      vscode.workspace.openTextDocument(prevFileUri);
+    }),
+  );
+
+  // active text editor change
+  context.subscriptions.push(
+    vscode.window.onDidChangeActiveTextEditor((e) => {
+      if (!e) {
+        return;
+      }
+
+      console.log('trigger change active text editor!');
+
+      lastFiles.prevFile = e;
+    }),
+  );
 }
