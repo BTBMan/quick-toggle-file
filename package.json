@@ -1,14 +1,13 @@
 {
   "name": "quick-toggle-file",
   "displayName": "Quick Toggle File",
-  "description": "A VSCode Extension for quick toggle between two files",
+  "description": "A VSCode Extension for quick toggle between current file and last file",
   "version": "0.0.1",
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
     "lint:eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
     "prettier": "prettier --no-editorconfig --config-precedence prefer-file \"**/*.{js,cjs,mjs,ts,cts,mts,json,jsonc,jsx,tsx,css,less,scss,styl,vue,html,md}\"",
@@ -27,6 +26,7 @@
   "engines": {
     "vscode": "^1.66.0"
   },
+  "icon": "logo.png",
   "categories": [
     "Other"
   ],
@@ -47,7 +47,7 @@
     "commands": [
       {
         "command": "quickToggleFile.toggle",
-        "title": "quick toggle between two files",
+        "title": "quick toggle between current file and last file",
         "category": "Quick Toggle File"
       }
     ]

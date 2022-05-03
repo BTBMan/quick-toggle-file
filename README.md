@@ -1,6 +1,6 @@
-# VSCode Toggle File
+# Quick Toggle File
 
-A VSCode Extension for quick toggle between two files
+A VSCode Extension for quick toggle between current file and last file
 
 ## Screenshot
 
