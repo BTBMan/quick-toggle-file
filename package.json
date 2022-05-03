@@ -10,14 +10,25 @@
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
+    "lint:eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
     "prettier": "prettier --no-editorconfig --config-precedence prefer-file \"**/*.{js,cjs,mjs,ts,cts,mts,json,jsonc,jsx,tsx,css,less,scss,styl,vue,html,md}\"",
+    "fix:eslint": "npm run lint:eslint -- --fix",
     "fix:prettier": "npm run prettier -- --write"
   },
+  "author": "BTB",
+  "license": "MIT",
+  "keywords": [
+    "vscode",
+    "extension",
+    "file",
+    "toggle file",
+    "between two files"
+  ],
   "engines": {
     "vscode": "^1.66.0"
   },
   "categories": [
-    "Extension Packs"
+    "Other"
   ],
   "repository": {
     "type": "git",
