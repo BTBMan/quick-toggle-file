@@ -6,11 +6,14 @@ export function activate(context: vscode.ExtensionContext) {
 
   // exec command
   context.subscriptions.push(
-    vscode.commands.registerCommand('vscode-ext-demo.toggle', () => {
+    vscode.commands.registerCommand('quickToggleFile.toggle', () => {
       const prevFileDocument = filesQueue.prevFile.document;
 
       vscode.workspace.openTextDocument(prevFileDocument.uri).then((doc) => {
-        vscode.window.showTextDocument(prevFileDocument, filesQueue.prevFile.viewColumn);
+        vscode.window.showTextDocument(
+          prevFileDocument,
+          filesQueue.prevFile.viewColumn,
+        );
       });
     }),
   );
