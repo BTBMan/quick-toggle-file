@@ -2,17 +2,15 @@ import * as vscode from 'vscode';
 import { FilesQueue } from './FilesQueue';
 
 export function activate(context: vscode.ExtensionContext) {
-  const lastFiles = new FilesQueue(context);
+  const filesQueue = new FilesQueue(context);
 
   // exec command
   context.subscriptions.push(
     vscode.commands.registerCommand('vscode-ext-demo.toggle', () => {
-      const prevFileUri = lastFiles.prevFile.document.uri;
+      const prevFileDocument = filesQueue.prevFile.document;
 
-      console.log(prevFileUri.path);
-
-      vscode.workspace.openTextDocument(prevFileUri).then((doc) => {
-        vscode.window.showTextDocument(doc);
+      vscode.workspace.openTextDocument(prevFileDocument.uri).then((doc) => {
+        vscode.window.showTextDocument(prevFileDocument, filesQueue.prevFile.viewColumn);
       });
     }),
   );
@@ -26,7 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
 
       console.log('trigger change active text editor!');
 
-      lastFiles.prevFile = e;
+      filesQueue.prevFile = e;
     }),
   );
 }
