@@ -6,13 +6,11 @@ A VSCode Extension for quick toggle between current file and last file
 
 Single editor
 
-<!-- ![demo1](./images/demo1.gif) -->
-<img width="600" src='./images/demo1.gif' />
+<img width="600" src='https://github.com/BTBMan/quick-toggle-file/raw/main/images/demo1.gif' />
 
 Multi editors
 
-<!-- ![demo2](./images/demo2.gif) -->
-<img width="600" src='./images/demo2.gif' />
+<img width="600" src='https://github.com/BTBMan/quick-toggle-file/raw/main/images/demo2.gif' />
 
 ## How to use
 
@@ -22,7 +20,6 @@ Multi editors
 
 ```json
 [
-  // ...
   {
     "key": "ctrl+e",
     "command": "quickToggleFile.toggle"
