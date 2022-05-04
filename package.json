@@ -4,7 +4,6 @@
   "description": "A VSCode Extension for quick toggle between current file and last file",
   "version": "0.0.1",
   "scripts": {
-    "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
@@ -12,7 +11,11 @@
     "lint:eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
     "prettier": "prettier --no-editorconfig --config-precedence prefer-file \"**/*.{js,cjs,mjs,ts,cts,mts,json,jsonc,jsx,tsx,css,less,scss,styl,vue,html,md}\"",
     "fix:eslint": "npm run lint:eslint -- --fix",
-    "fix:prettier": "npm run prettier -- --write"
+    "fix:prettier": "npm run prettier -- --write",
+    "package": "yes | vsce package --no-dependencies --allow-star-activation",
+    "publish": "yes | vsce publish --no-dependencies --allow-star-activation",
+    "vscode:prepublish": "npm run compile",
+    "release": "bumpp --commit --push --tag && npm package && npm publish"
   },
   "author": "BTB",
   "license": "MIT",
@@ -53,12 +56,13 @@
     ]
   },
   "devDependencies": {
-    "@types/vscode": "^1.66.0",
     "@types/node": "14.x",
+    "@types/vscode": "^1.66.0",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
+    "@vscode/test-electron": "^2.1.3",
+    "bumpp": "^7.1.1",
     "eslint": "^8.11.0",
-    "typescript": "^4.5.5",
-    "@vscode/test-electron": "^2.1.3"
+    "typescript": "^4.5.5"
   }
 }
