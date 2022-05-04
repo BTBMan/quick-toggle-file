@@ -43,7 +43,7 @@
   "homepage": "https://github.com/BTBMan/quick-toggle-file#readme",
   "activationEvents": [
     "onStartupFinished",
-    "onCommand:vscode-ext-demo.toggle"
+    "onCommand:quickToggleFile.toggle"
   ],
   "main": "./out/extension.js",
   "contributes": {
