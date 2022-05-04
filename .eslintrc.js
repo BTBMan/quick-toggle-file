@@ -7,7 +7,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   rules: {
-    '@typescript-eslint/naming-convention': 'warn',
+    '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/semi': 'warn',
     curly: 'warn',
     eqeqeq: 'warn',
