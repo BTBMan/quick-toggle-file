@@ -21,16 +21,15 @@
   "publisher": "BTBest",
   "license": "MIT",
   "keywords": [
-    "vscode",
-    "extension",
-    "file",
-    "toggle file",
-    "between two files"
+    "files",
+    "quick",
+    "toggle",
+    "between"
   ],
   "engines": {
     "vscode": "^1.66.0"
   },
-  "icon": "logo.png",
+  "icon": "images/logo.png",
   "categories": [
     "Other"
   ],
