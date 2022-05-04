@@ -2,7 +2,7 @@
   "name": "quick-toggle-file",
   "displayName": "Quick Toggle File",
   "description": "A VSCode Extension for quick toggle between current file and last file",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
